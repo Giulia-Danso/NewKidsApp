@@ -8,6 +8,8 @@ class Login extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.lightBlue,
+          centerTitle: true,
           title: const Text(' Welcome to Login'),
         ),
         body: const LoginScreen(),
@@ -38,9 +40,27 @@ class _LoginScreenState extends State<LoginScreen> {
             controller: _emailController,
             decoration: const InputDecoration(
               labelText: 'Email',
-              border: UnderlineInputBorder(),
+              border: OutlineInputBorder(),
             ),
-          )
+          ),
+          const SizedBox(height: 32.0),
+          TextField(
+            controller: _passwordController,
+            decoration: const InputDecoration(
+              labelText: 'Password',
+              border: OutlineInputBorder(),
+            ),
+            obscureText: true,
+          ),
+          const SizedBox(height: 32.0),
+          ElevatedButton(
+            onPressed: () {
+              print('Login Button Pressed');
+              print('Email: $_emailController.text');
+              print('Password: $_passwordController.text');
+            },
+            child: const Text('Login'),
+          ),
         ],
       ),
     );
